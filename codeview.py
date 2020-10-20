@@ -7,8 +7,6 @@ sys.path.insert(1, os.path.split(sys.path[0])[0])
 import binascii
 import nfc
 
-#service_code = 0x090f
-
 def connected(tag):
   if isinstance(tag, nfc.tag.tt3.Type3Tag):
     try:
@@ -20,5 +18,5 @@ def connected(tag):
     print "error: tag isn't Type3Tag"
 
 # タッチ時のハンドラを設定して待機する
-clf = nfc.ContactlessFrontend('usb')
+clf = nfc.ContactlessFrontend('usb:054c:06c3')
 clf.connect(rdwr={'on-connect': connected})
